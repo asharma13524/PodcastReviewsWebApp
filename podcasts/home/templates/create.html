@@ -1,0 +1,97 @@
+{% extends 'layout.html' %}
+
+{% block pagestyles %}
+    {% assets "home_less_bundle" %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/style.css') }}" rel="stylesheet/css"
+            type="text/css">
+    {% endassets %}
+
+{% endblock %}
+
+
+{% block content %}
+
+{% include 'navigation.html' %}
+
+
+<div class="form-wrapper">
+    <h2 class="title">Create a Podcast Review</h2>
+    <form method="POST" enctype=multipart/form-data action="/create">
+        {{ form.csrf_token }}
+
+        <fieldset class="guest">
+            {{ form.podcast_guest.label }} {{ form.podcast_guest }}
+                {% if form.podcast_guest.errors %}
+                    <ul class="errors">
+                        {% for error in form.podcast_guest.errors %}
+                            <li>{{ error }} </li>
+                        {% endfor %}
+                    </ul>
+            {% endif %}
+        </fieldset>
+
+        <fieldset class="host">
+            {{ form.podcast_host.label }} {{ form.podcast_host }}
+                {% if form.podcast_host.errors %}
+                    <ul class="errors">
+                        {% for error in form.podcast_host.errors %}
+                            <li>{{ error }} </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+        </fieldset>
+
+        <fieldset class="img">
+            {{ form.podcast_img.label }} {{ form.podcast_img }}
+                {% if form.podcast_host.errors %}
+                    <ul class="errors">
+                        {% for error in form.podcast_img.errors %}
+                            <li>{{ error }} </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+        </fieldset>
+
+        <label for="podcast_rating">Rating</label>
+        <fieldset class="rating">
+            {% for radio in form.podcast_rating %}
+                <div class="form-field-rating"> {{ radio.label }} {{ radio }}</div>
+            {% endfor %}
+            {% if form.podcast_rating.errors %}
+                <ul class="errors">
+                    {% for error in form.podcast_rating.errors %}
+                        <li>{{ error }} </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </fieldset>
+
+        <fieldset class="genre">
+            {{ form.podcast_genre.label }} {{ form.podcast_genre }}
+                {% if form.podcast_genre.errors %}
+                    <ul class="errors">
+                        {% for error in form.podcast_genre.errors %}
+                            <li>{{ error }} </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+        </fieldset>
+
+        <fieldset class="review">
+            {{ form.podcast_review.label }} {{ form.podcast_review }}
+                {% if form.podcast_review.errors %}
+                    <ul class="errors">
+                        {% for error in form.podcast_review.errors %}
+                            <li>{{ error }} </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+        </fieldset>
+        <div class="submit-button">
+            {{ form.submit }}
+        </div>
+
+    </form>
+</div>
+
+{% endblock %}

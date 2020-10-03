@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block pagestyles %}
+
+{% endblock %}
+
+{% block content %}
+
+{% include 'navigation.html' %}
+
+<div class="account-details">
+    <div class="user-info">
+        <h1>{{ user.username }}</h1>
+    </div>
+</div>
+
+{% endblock %}

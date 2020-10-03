@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block pagestyles %}
+    {% assets "home_less_bundle" %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/style.css') }}" rel="stylesheet/css"
+        type="text/css">
+    {% endassets %}
+{% endblock %}
+
+
+
+{% block content %}
+
+{% include 'navigation.html' %}
+
+<div class="jumbotron">
+    <h1 class="display-4">Thank you for stopping by!</h1>
+    <p class="lead">This is a simple podcast review website that I built with flask, postgresql, HTML, and CSS.</p>
+    <hr class="my-4">
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="https://abhin-sharma.com" role="button">Check out my website!</a>
+    </p>
+</div>
+
+{% endblock %}
