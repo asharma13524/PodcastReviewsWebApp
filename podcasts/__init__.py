@@ -33,7 +33,6 @@ def create_app():
         app.register_blueprint(home.home_bp)
         app.register_blueprint(profile.profile_bp)
         app.register_blueprint(auth.auth_bp)
-        app.add_url_rule('/', endpoint='index')
 
 
         # create all db models
