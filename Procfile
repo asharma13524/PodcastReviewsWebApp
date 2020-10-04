@@ -1,1 +1,1 @@
-web: gunicorn app:pocasts
+web: gunicorn app:podcasts
