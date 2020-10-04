@@ -1,1 +1,1 @@
-web: gunicorn app:podcasts
+web: gunicorn -w 4 "podcasts:create_app()"
