@@ -13,10 +13,12 @@ class Config():
     STATIC_FOLDER = 'static'
     TEMPLATES_FOLDER = 'templates'
     UPLOAD_FOLDER = environ.get('UPLOAD_FOLDER')
+    # Static Assets
+    ASSETS_AUTO_BUILD = True
 
 
 
-class Production(Config):
+class ProdConfig(Config):
     """Prod Config"""
 
     FLASK_ENV = 'production'
@@ -29,7 +31,7 @@ class DevConfig(Config):
     """Dev Config"""
 
     # env
-    FLASK_ENV = environ.get("FLASK_ENV")
+    FLASK_ENV = 'development'
     DEBUG = True
     TESTING = True
 
@@ -40,8 +42,7 @@ class DevConfig(Config):
 
     # Flask Assets
     ASSETS_DEBUG = True
-    LESS_BIN = environ.get('LESS_BIN')
-    LESS_RUN_IN_DEBUG = True
+    UPLOAD_FOLDER = environ.get("UPLOAD_FOLDER")
 
     # Static Assets
     COMPRESSOR_DEBUG = True

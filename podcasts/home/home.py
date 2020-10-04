@@ -75,7 +75,6 @@ def update(id):
         review.reviewer_id = current_user.id
         review.review_date = dt.now()
         review.reviewer_username = current_user.username
-        print(current_user.username)
         review.podcast_img = review.podcast_img
         review.podcast_guest = request.form['podcast_guest']
         review.podcast_host = request.form['podcast_host']
