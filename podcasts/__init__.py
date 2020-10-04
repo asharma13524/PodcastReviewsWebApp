@@ -13,7 +13,7 @@ login_manager = LoginManager()
 
 def create_app():
     app = Flask(__name__, instance_relative_config=False)
-    app.config.from_object("config.ProdConfig")
+    app.config.from_object("config.DevConfig")
     assets = Environment()
 
     # initializate DB, Marshmallow, Bootstrap, assets, login
@@ -28,7 +28,6 @@ def create_app():
         from .home import home
         from .profile import profile
         from .auth import auth
-        from .assets import compile_static_assets
 
         # register blueprints
         app.register_blueprint(home.home_bp)
@@ -36,8 +35,6 @@ def create_app():
         app.register_blueprint(auth.auth_bp)
         app.add_url_rule('/', endpoint='index')
 
-        # compile assets
-        compile_static_assets(assets)
 
         # create all db models
         db.create_all()

@@ -40,10 +40,6 @@ class DevConfig(Config):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ECHO = False
 
-    # Flask Assets
-    ASSETS_DEBUG = True
-    UPLOAD_FOLDER = environ.get("UPLOAD_FOLDER")
-
     # Static Assets
     COMPRESSOR_DEBUG = True
     ASSETS_AUTO_BUILD = True

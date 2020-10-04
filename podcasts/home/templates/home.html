@@ -24,7 +24,7 @@
     {% for review in all_reviews %}
         <div class="col-md-3 col-sm-6">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{ url_for('static', filename='src/img/' + review.podcast_img) }}" alt="podcast_img">
+                <img class="card-img-top" src="{{ config['UPLOAD_FOLDER'] + '/' + review.podcast_img }}" alt="podcast_img">
                 <div class="card-body">
                     <h3>{{ review.podcast_guest }}</h3>
                     <hr>
