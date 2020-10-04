@@ -24,7 +24,7 @@ class ProdConfig(Config):
     FLASK_ENV = 'production'
     DEBUG = False
     TESTING = False
-    PROD_DATABASE_URI = environ.get('PROD_DATABASE_URI')
+    DATABASE_URL = environ.get('DATABASE_URL')
 
 
 class DevConfig(Config):
